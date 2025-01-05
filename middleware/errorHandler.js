@@ -29,13 +29,13 @@ const errorHandler = (err, req, res, next) => {
       });
     case constants.SERVER_ERROR:
       res.json({
-        titlr: "Internal Server Error",
+        titlr: "Server Error",
         message: err.message,
         stackTrace: err.stack,
       });
-      break;
-
-    default:  
+      
+    default: 
+      console.log("No Error, All good here");
       break;  
   }
 
