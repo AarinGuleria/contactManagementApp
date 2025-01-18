@@ -6,7 +6,7 @@ Welcome to the **MyContacts Backend API**! This powerful Node.js/Express.js appl
 
 - 🔐 Secure JWT Authentication
 - 📝 CRUD Operations for Contacts
-- 🎯 Input Validation
+- 🎯 Input Validation with Express Validator
 - 🔄 Error Handling
 - 📦 MongoDB Integration
 - 🛡️ Express Middleware
@@ -53,13 +53,16 @@ Welcome to the **MyContacts Backend API**! This powerful Node.js/Express.js appl
 ### Authentication Endpoints
 
 - POST `/api/users/register` - Register a new user
+  - Required fields: username, email, password
 - POST `/api/users/login` - Login user
-- GET `/api/users/current` - Get current user info
+  - Required fields: email, password
+- GET `/api/users/current` - Get current user info (Protected Route)
 
-### Contacts Endpoints
+### Contacts Endpoints (All Protected Routes)
 
-- GET `/api/contacts` - Get all contacts
+- GET `/api/contacts` - Get all contacts for logged in user
 - POST `/api/contacts` - Create new contact
+  - Required fields: name, email, phone
 - GET `/api/contacts/:id` - Get contact by ID
 - PUT `/api/contacts/:id` - Update contact
 - DELETE `/api/contacts/:id` - Delete contact
@@ -70,6 +73,7 @@ Welcome to the **MyContacts Backend API**! This powerful Node.js/Express.js appl
 - MongoDB & Mongoose
 - JWT Authentication
 - Express-Async-Handler
+- Express Validator
 - Bcrypt
 - Dotenv
 
