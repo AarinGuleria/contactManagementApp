@@ -1,15 +1,18 @@
 # 📞 MyContacts Backend API
 
-Welcome to the **MyContacts Backend API**! This powerful Node.js/Express.js application provides a robust backend system for managing contacts with secure authentication and MongoDB integration.
+Welcome to the **MyContacts Backend API**! This production-ready Node.js/Express.js application provides a robust backend system for managing contacts with secure authentication and MongoDB integration.
 
 ## ✨ Features
 
-- 🔐 Secure JWT Authentication
-- 📝 CRUD Operations for Contacts
-- 🎯 Input Validation with Express Validator
-- 🔄 Error Handling
-- 📦 MongoDB Integration
-- 🛡️ Express Middleware
+- 🔐 Secure JWT Authentication & Authorization
+- 📝 Complete CRUD Operations for Contacts Management
+- 🎯 Request Validation using Express Validator
+- 🔄 Global Error Handling & Custom Error Responses
+- 📦 MongoDB & Mongoose Integration
+- 🛡️ Express Middleware for Route Protection
+- 🔒 Password Hashing with Bcrypt
+- 📊 User-specific Contact Management
+- ⚡ Async/Await Implementation with Express-Async-Handler
 
 ## 🚀 Getting Started
 
@@ -39,7 +42,7 @@ Welcome to the **MyContacts Backend API**! This powerful Node.js/Express.js appl
 
 ### 🏃‍♂️ Running the Application
 
-1. Start the server:
+1. Start the production server:
    ```bash
    npm start
    ```
@@ -54,29 +57,47 @@ Welcome to the **MyContacts Backend API**! This powerful Node.js/Express.js appl
 
 - POST `/api/users/register` - Register a new user
   - Required fields: username, email, password
+  - Returns: User object with JWT token
 - POST `/api/users/login` - Login user
   - Required fields: email, password
+  - Returns: JWT token & user info
 - GET `/api/users/current` - Get current user info (Protected Route)
+  - Requires: Valid JWT token in Authorization header
 
-### Contacts Endpoints (All Protected Routes)
+### Contacts Endpoints (Protected Routes)
 
 - GET `/api/contacts` - Get all contacts for logged in user
+  - Returns: Array of contact objects
 - POST `/api/contacts` - Create new contact
   - Required fields: name, email, phone
+  - Optional fields: description
 - GET `/api/contacts/:id` - Get contact by ID
+  - Returns: Single contact object
 - PUT `/api/contacts/:id` - Update contact
+  - Updateable fields: name, email, phone, description
 - DELETE `/api/contacts/:id` - Delete contact
+  - Returns: Success message
 
 ## 🛠️ Tech Stack
 
-- Express.js
-- MongoDB & Mongoose
-- JWT Authentication
-- Express-Async-Handler
-- Express Validator
-- Bcrypt
-- Dotenv
+- Express.js - Web framework
+- MongoDB & Mongoose - Database & ODM
+- JWT - Authentication & Authorization
+- Express-Async-Handler - Async operations handling
+- Express Validator - Input validation
+- Bcrypt - Password hashing
+- Dotenv - Environment variables management
+- Nodemon - Development server
+
+## 🔐 Security Features
+
+- Password Hashing
+- JWT Token Authentication
+- Protected Routes
+- Input Sanitization
+- User-specific Data Access
+- Error Handling
 
 ## 📝 License
 
-This project is licensed under the MIT License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute as per the license terms.
